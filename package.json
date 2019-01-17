@@ -1,0 +1,33 @@
+{
+  "name": "winstonson",
+  "version": "1.0.0",
+  "description": "Simple logging wrapper around Winston - for Node.js",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bradenhc/winstonson.git"
+  },
+  "keywords": [
+    "winston",
+    "log",
+    "logger",
+    "slog",
+    "simple"
+  ],
+  "author": "Braden Hitchcock <developer.hitchcock@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bradenhc/winstonson/issues"
+  },
+  "homepage": "https://github.com/bradenhc/winstonson#readme",
+  "dependencies": {
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
+}
