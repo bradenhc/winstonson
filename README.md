@@ -41,8 +41,10 @@ logger.error('I am an error message! Something really bad happened!');
 Currently the log message format is static, but this will change in future versions. An example of the default format is provided below:
 
 ```text
-# level: timestamp [file] message
-verbose: 1545878224449 [example.js]  Hello, world!
+# level: timestamp [file] (code) message
+verbose: 1545878224449 [example.js]  (100) Hello, world!
 ```
+
+The `code` is defined on the `Error` object passed to the `logger.error()` function. If no code is defined, the code will simply be omitted from the output.
 
 You can also mute/unmute output to the console with the `logger.mute()` and `logger.unmute()` functions respectively.
