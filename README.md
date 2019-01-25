@@ -1,5 +1,5 @@
 # winstonson (v1.0.0)
-Simple logging wrapper around [Winston](https://www.npmjs.com/package/winston) for Node.js
+Simple logging wrapper around [Winston](https://www.npmjs.com/package/winston) for Node.js with support for Morgan middleware in Express.
 
 ```text
 npm install winstonson
@@ -10,7 +10,7 @@ Winstonson is an very simple, opinionated logging wrapper around the [Winston](h
 - Error - writes error messages to an `error.log` file
 - Out - writes all logging messages to an `out.log` file
 
-### Usage
+## Usage
 
 ```js
 const logger = require('winstonson')(module);
@@ -36,6 +36,23 @@ logger.info('I am an informative message!');
 logger.warn('I am a warning!');
 logger.error('I am an error message! Something really bad happened!');
 ```
+
+### Use with Express and Morgan
+Winstonson allows you to capture the output of the Morgan middleware in Express thorugh the use of the `stream()` function. 
+
+```js
+const express = require('express');
+const morgan = require('morgan');
+const logger = require('winstonson')(module);
+const app = express();
+
+app.use(morgan('tiny', { stream: logger.stream('trace')}));
+
+// Additional Express code |
+// ...                     V
+```
+
+The provided level determines at what level the messages should be logged and corresponds to the Winstonson level set using `level()`. The output from Morgan will be located in the `message` portion of the log output (see below).
 
 ### Log Message Format
 Currently the log message format is static, but this will change in future versions. An example of the default format is provided below:
