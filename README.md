@@ -54,6 +54,19 @@ app.use(morgan('tiny', { stream: logger.stream('trace')}));
 
 The provided level determines at what level the messages should be logged and corresponds to the Winstonson level set using `level()`. The output from Morgan will be located in the `message` portion of the log output (see below).
 
+You can trace an HTTP request when it comes in and leaves by using Morgan in the following way:
+
+```js
+app.use(morgan('---> :remote-addr :remote-user ":method :url HTTP/:http-version"', { 
+    immediate: true, 
+    stream: logger.stream('trace')
+}));
+app.use(morgan('<--- :method :url :status :res[content-length]', { 
+    immediate: false, 
+    stream: logger.stream('trace')
+}));
+```
+
 ### Log Message Format
 Currently the log message format is static, but this will change in future versions. An example of the default format is provided below:
 
