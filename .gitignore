@@ -1,6 +1,9 @@
 # IDE Settings
 .vscode/
 
+# Build
+lib/
+
 # Logs
 logs
 *.log
