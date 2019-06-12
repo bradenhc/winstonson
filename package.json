@@ -3,8 +3,11 @@
   "version": "1.2.2",
   "description": "Simple logging wrapper around Winston - for Node.js",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc --declaration"
   },
   "repository": {
     "type": "git",
@@ -28,7 +31,10 @@
     "winston": "^3.1.0"
   },
   "devDependencies": {
+    "@types/node": "^12.0.8",
     "chai": "^4.2.0",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "tslint": "^5.17.0",
+    "typescript": "^3.5.1"
   }
 }
