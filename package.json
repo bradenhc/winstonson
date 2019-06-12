@@ -1,6 +1,6 @@
 {
   "name": "winstonson",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Simple logging wrapper around Winston - for Node.js",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
